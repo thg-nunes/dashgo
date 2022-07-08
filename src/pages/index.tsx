@@ -1,25 +1,27 @@
-import { Button, Flex, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react'
+import Head from 'next/head'
 import type { NextPage } from 'next'
+import { Button, Flex, Stack } from '@chakra-ui/react'
 
-const Home: NextPage = () => {
+import { Input } from '../components/form/input'
+
+const SignIn: NextPage = () => {
   return (
-    <Flex w='100vw' h='100vh' align='center' justify='center'>
-      <Flex as={'form'} w='100%' maxW={360} borderRadius={8} bg='gray.800' p='8' flexDir={'column'}>
-        <Stack spacing={'4'}>
-          <FormControl>
-            <FormLabel htmlFor='email'>Email</FormLabel>
-            <Input type={'email'} name='email' size={'lg'} focusBorderColor='pink.500' variant={'filled'} bg={'gray.900'} _hover={{bg: 'gray-900'}} />
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor='password'>Senha</FormLabel>
-            <Input type={'password'} name='password' size={'lg'} focusBorderColor='pink.500' variant={'filled'} bg={'gray.900'} _hover={{bg: 'gray-900'}} />
-          </FormControl>
-        </Stack>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <Flex w='100vw' h='100vh' align='center' justify='center'>
+        <Flex as={'form'} w='100%' maxW={360} borderRadius={8} bg='gray.800' p='8' flexDir={'column'}>
+          <Stack spacing={'4'}>
+            <Input name='email' type={'email'} label='E-mail' />
+            <Input name='password' type={'password'} label='Senha' />
+          </Stack>
 
-        <Button mt={'6'} colorScheme={'pink'} size={'lg'} >Entrar</Button>
+          <Button mt={'6'} colorScheme={'pink'} size={'lg'} >Entrar</Button>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   )
 }
 
-export default Home
+export default SignIn
