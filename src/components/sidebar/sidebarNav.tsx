@@ -8,14 +8,14 @@ export const SidebarNav = () => {
     <Stack spacing='4' align='flex-start'>
       <Section title="GERAL">
         <Stack spacing={'4'} mt='8' align={'stretch'}>
-          <LinkSideBar children="Dashboard" icon={RiDashboardLine}/>
-          <LinkSideBar children="Usuários" icon={RiContactsLine}/>
+          <LinkSideBar href="/dashboard" children="Dashboard" icon={RiDashboardLine}/>
+          <LinkSideBar href="/users" children="Usuários" icon={RiContactsLine}/>
         </Stack>
       </Section>
       <Section title='AUTOMAÇÃO'>
         <Stack spacing={'4'} mt='8' align={'stretch'}>
-          <LinkSideBar children="Formulários" icon={RiInputMethodLine}/>
-          <LinkSideBar children="Automação" icon={RiGitMergeLine}/>
+          <LinkSideBar href="/forms" children="Formulários" icon={RiInputMethodLine}/>
+          <LinkSideBar href="/automation" children="Automação" icon={RiGitMergeLine}/>
         </Stack>
       </Section>
     </Stack>

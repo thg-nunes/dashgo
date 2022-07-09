@@ -1,4 +1,5 @@
 import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
+import Link from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/header";
 import { Pagination } from "../../components/pagination";
@@ -18,7 +19,9 @@ export default function UsersList() {
         <Box flex={'1'} bg='gray.800' borderRadius={8} p='8'>
           <Flex justify={'space-between'} align='center' mb={'8'}>
             <Heading fontWeight={'normal'} size='lg'>Usuários</Heading>
-            <Button as='a' leftIcon={<Icon as={RiAddLine} fontSize='20' />} size={'sm'} fontSize='sm' colorScheme={'pink'}>Criar Novo</Button>
+            <Link href='/users/create' passHref>
+              <Button as='a' leftIcon={<Icon as={RiAddLine} fontSize='20' />} size={'sm'} fontSize='sm' colorScheme={'pink'}>Criar Novo</Button>
+            </Link>
           </Flex>
 
           <Table colorScheme={'whiteAlpha'}>
@@ -46,7 +49,7 @@ export default function UsersList() {
                 </Td>
                 {isWideVersion && <Td>08/07/2022</Td>}
                 <Td align="right">
-                  <Button as='a' leftIcon={<Icon as={RiPencilLine} fontSize='20' />} size={'sm'} fontSize='sm' colorScheme={'purple'}>Criar Novo</Button>
+                  <Button as='a' leftIcon={<Icon as={RiPencilLine} fontSize='20' />} size={'sm'} fontSize='sm' colorScheme={'purple'}>Editar</Button>
                 </Td>
               </Tr>
             </Tbody>
