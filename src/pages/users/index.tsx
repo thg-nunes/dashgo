@@ -1,10 +1,15 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/header";
 import { Pagination } from "../../components/pagination";
 import { SideBar } from "../../components/sidebar";
 
 export default function UsersList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   return (
     <Box>
       <Header />
@@ -19,7 +24,7 @@ export default function UsersList() {
           <Table colorScheme={'whiteAlpha'}>
             <Thead>
               <Tr>
-                <Th px={'6'} color='gray.200' w={'8'}>
+                <Th px={['4', '4', '6']} color='gray.200' w={'8'}>
                   <Checkbox colorScheme={'pink'} />
                 </Th>
                 <Th>Usuários</Th>
@@ -30,7 +35,7 @@ export default function UsersList() {
 
             <Tbody>
               <Tr>
-                <Td px={'6'}>
+                <Td px={['4', '4', '6']}>
                   <Checkbox colorScheme={'pink'} />
                 </Td>
                 <Td>
@@ -39,7 +44,7 @@ export default function UsersList() {
                     <Text color={'gray.300'} fontSize='sm'>desenvolvedor.nunes@gmail.com</Text>
                   </Box>
                 </Td>
-                <Td>08/07/2022</Td>
+                {isWideVersion && <Td>08/07/2022</Td>}
                 <Td align="right">
                   <Button as='a' leftIcon={<Icon as={RiPencilLine} fontSize='20' />} size={'sm'} fontSize='sm' colorScheme={'purple'}>Criar Novo</Button>
                 </Td>
