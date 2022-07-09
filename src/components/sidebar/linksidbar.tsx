@@ -1,6 +1,6 @@
 import { Icon, Link as ChakraLink, LinkProps, Text } from "@chakra-ui/react"
-import Link from "next/link"
 import { ElementType } from "react"
+import { ActiveLink } from "../activeLink"
 
 interface LinkSideBarProps extends LinkProps {
   icon: ElementType
@@ -10,11 +10,11 @@ interface LinkSideBarProps extends LinkProps {
 
 export const LinkSideBar = ({ icon, children, href, ...rest }: LinkSideBarProps) => {
   return (
-    <Link href={href} passHref >
+    <ActiveLink href={href} passHref >
       <ChakraLink display={'flex'} alignItems='center' {...rest}>
         <Icon as={icon} fontSize='20'/>
         <Text ml={'4'}>{children}</Text>
       </ChakraLink>
-    </Link>
+    </ActiveLink>
   )
 }
