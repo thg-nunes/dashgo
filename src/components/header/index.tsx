@@ -1,5 +1,6 @@
-import { Flex, Icon, Input, Text, useBreakpointValue } from "@chakra-ui/react"
-import { RiSearchLine } from 'react-icons/ri'
+import { Flex, Icon, IconButton, Input, Text, useBreakpointValue } from "@chakra-ui/react"
+import { RiMenuLine, RiSearchLine } from 'react-icons/ri'
+import { useSidebarDrawerContext } from "../../contexts/sidebarDrawerContext"
 import { InforUser } from "./inforUser"
 import { Notifications } from "./notifications"
 
@@ -8,8 +9,20 @@ export const Header = () => {
     base: false,
     lg: true
   })
+  const { onOpen } = useSidebarDrawerContext()
   return (
     <Flex width={'100%'} maxW={1480} h='28' mx='auto' mt='4' px='6' align='center'>
+      {!isWideVersion && (
+        <IconButton
+          aria-label="Open Navigation"
+          icon={<Icon as={RiMenuLine} />}
+          variant='unstyled'
+          fontSize={'24'}
+          onClick={onOpen}
+          mr='2'
+          pt={1.5}
+        />
+      )}
       <Text
         fontSize={['2xl', '3xl']}
         fontWeight='bold'
