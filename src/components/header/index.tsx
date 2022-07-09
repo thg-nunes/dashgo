@@ -1,5 +1,7 @@
-import { Avatar, Box, Flex, HStack, Icon, Input, Text } from "@chakra-ui/react"
-import { RiNotificationLine, RiSearchLine, RiUserAddLine } from 'react-icons/ri'
+import { Flex, Icon, Input, Text } from "@chakra-ui/react"
+import { RiSearchLine } from 'react-icons/ri'
+import { InforUser } from "./inforUser"
+import { Notifications } from "./notifications"
 
 export const Header = () => {
   return (
@@ -20,18 +22,8 @@ export const Header = () => {
       </Flex>
 
       <Flex align='center' ml='auto'>
-        <HStack spacing='8' color='gray.400' mx='8' py='1' pr='8' borderRightWidth='1px' borderColor='gray.400'>
-          <Icon as={RiNotificationLine} fontSize='20' />
-          <Icon as={RiUserAddLine} fontSize='20' />
-        </HStack>
-
-        <Flex align='center'>
-          <Box textAlign='right' mr='4'>
-            <Text>Thiago Nunes</Text>
-            <Text color='gray.400'>desenvolvedor.nunes@gmail.com</Text>
-          </Box>
-          <Avatar size='md' name="Thiago Nunes" src="https://github.com/thg-nunes.png" />
-        </Flex>
+        <Notifications />
+        <InforUser />
       </Flex>
     </Flex>
   )
