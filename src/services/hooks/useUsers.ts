@@ -10,8 +10,14 @@ type User = {
   } []
 }
 
-const getUsers = async () => {
-  const { data } = await api.get<User>('/users')
+const getUsers = async (page: number) => {
+  const { data, headers } = await api.get<User>('/users', {
+    params: {
+      page
+    }
+  })
+
+  const totalCount = Number(headers['x-total-count'])
 
   const users = data.users.map(user => ({
     id: user.id,
@@ -24,11 +30,11 @@ const getUsers = async () => {
     }),
   }))
 
-  return users
+  return { users, totalCount }
 }
 
-export const useUsers = () => {
-  return useQuery('users', getUsers , {
+export const useUsers = (page: number) => {
+  return useQuery(['users', page], () => getUsers(page) , {
     staleTime: 1000 * 5 // 5 segundos para revalidar o cache
   })
 }
